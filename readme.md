@@ -4,7 +4,22 @@ This project is a simple web scraper and HTML extractor for cloning static websi
 
 - [`scraped.py`](scraped.py): Crawls a website, downloads HTML pages, CSS, and JS assets, and rewrites links for local use.
 - [`extract.py`](extract.py): Cleans and rewrites an existing HTML file's asset links for local usage.
+## Activate Virtual Environment
 
+**For Mac/Linux:**
+```bash
+source venv/bin/activate
+```
+
+**For Windows (Command Prompt):**
+```cmd
+venv\Scripts\activate
+```
+
+**For Windows (PowerShell):**
+```powershell
+venv\Scripts\Activate.ps1
+```
 ## Requirements
 
 - Python 3.6+
