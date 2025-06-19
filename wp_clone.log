@@ -3485,3 +3485,147 @@
 2025-06-19 15:46:26,598 - INFO - Saved page: wp_clone/case-study/grit-real-estate-group/index.html
 2025-06-19 15:46:27,083 - INFO - Saved page: wp_clone/casestudy-sector/hospitality/index.html
 2025-06-19 15:46:27,553 - INFO - Fetching: https://www.hsc.co.ke/services/digital/
+2025-06-19 15:46:30,402 - INFO - Saved page: wp_clone/services/digital/index.html
+2025-06-19 15:46:30,684 - INFO - Fetching: https://www.hsc.co.ke/services/it-software/
+2025-06-19 15:46:31,839 - ERROR - Failed to fetch https://www.hsc.co.ke/services/it-software/: 404, message='Not Found', url='https://www.hsc.co.ke/services/it-software/'
+2025-06-19 15:46:31,843 - INFO - Fetching: https://www.hsc.co.ke/blog/
+2025-06-19 15:46:31,845 - INFO - Fetching: https://www.hsc.co.ke/terms/privacy/
+2025-06-19 15:46:31,853 - INFO - Fetching: https://www.hsc.co.ke/terms/
+2025-06-19 15:46:31,856 - INFO - Fetching: https://www.hsc.co.ke/sitemap/
+2025-06-19 15:46:35,914 - INFO - Saved page: wp_clone/blog/index.html
+2025-06-19 15:46:36,718 - INFO - Saved page: wp_clone/terms/index.html
+2025-06-19 15:46:37,516 - INFO - Saved page: wp_clone/terms/privacy/index.html
+2025-06-19 15:46:38,333 - INFO - Saved page: wp_clone/sitemap/index.html
+2025-06-19 15:46:38,780 - INFO - Fetching: https://www.hsc.co.ke/wp-login.php
+2025-06-19 15:46:39,569 - INFO - Saved page: wp_clone/wp-login.php
+2025-06-19 15:46:39,716 - INFO - Fetching: https://www.hsc.co.ke/wp-content/uploads/2023/04/about-csr-page-gallery-hope22-image3.jpg
+2025-06-19 15:46:39,784 - INFO - Fetching: https://www.hsc.co.ke/wp-content/uploads/2023/04/about-csr-page-gallery-hope22-image4.jpg
+2025-06-19 15:46:40,327 - INFO - Fetching: https://www.hsc.co.ke/wp-content/uploads/2023/04/about-csr-page-gallery-hope22-image5.jpg
+2025-06-19 15:46:40,329 - INFO - Fetching: https://www.hsc.co.ke/wp-content/uploads/2023/04/about-csr-page-gallery-hope22-image6.jpg
+2025-06-19 15:46:40,330 - INFO - Fetching: https://www.hsc.co.ke/wp-content/uploads/2023/04/about-csr-page-gallery-hope22-image1.jpg
+2025-06-19 15:46:40,333 - INFO - Fetching: https://www.hsc.co.ke/wp-content/uploads/2023/04/about-csr-page-gallery-hope22-image2.jpg
+2025-06-19 15:46:40,340 - INFO - Fetching: https://www.hsc.co.ke/wp-content/uploads/2023/04/about-csr-page-gallery-dec2021-childrenshome-video1.mp4
+2025-06-19 15:46:40,355 - INFO - Fetching: https://www.hsc.co.ke/wp-content/uploads/2023/04/about-csr-page-gallery-mchanganyiko1.jpg
+2025-06-19 15:46:40,357 - INFO - Fetching: https://www.hsc.co.ke/wp-content/uploads/2023/04/about-csr-page-gallery-mchanganyiko2.jpg
+2025-06-19 15:46:40,366 - INFO - Fetching: https://www.hsc.co.ke/wp-content/uploads/2023/04/about-csr-page-gallery-mchanganyiko3.jpg
+2025-06-19 15:46:40,367 - INFO - Fetching: https://www.hsc.co.ke/wp-content/uploads/2023/04/about-csr-page-gallery-garden-childrens-2014-april3.jpg
+2025-06-19 15:46:40,369 - INFO - Fetching: https://www.hsc.co.ke/wp-content/uploads/2023/04/about-csr-page-gallery-garden-childrens-2014-april1.jpg
+2025-06-19 15:46:40,970 - INFO - Fetching: https://www.hsc.co.ke/wp-content/uploads/2023/04/about-csr-page-gallery-garden-childrens-2014-april2.jpg
+2025-06-19 15:46:40,972 - INFO - Fetching: https://www.hsc.co.ke/wp-content/uploads/2023/04/about-csr-page-gallery-uhola-pry-school-library1.jpg
+2025-06-19 15:46:40,974 - INFO - Fetching: https://www.hsc.co.ke/wp-content/uploads/2023/04/about-csr-page-gallery-uhola-pry-school-library2.jpg
+2025-06-19 15:46:40,977 - INFO - Fetching: https://www.hsc.co.ke/wp-content/uploads/2023/04/about-csr-page-gallery-uhola-pry-school-library3.jpg
+2025-06-19 15:46:41,714 - INFO - Fetching: https://www.hsc.co.ke/careers/2025-03-vacancy-marketing-specialist/
+2025-06-19 15:46:43,037 - ERROR - Failed to fetch https://www.hsc.co.ke/careers/2025-03-vacancy-marketing-specialist/: 404, message='Not Found', url='https://www.hsc.co.ke/careers/2025-03-vacancy-marketing-specialist/'
+2025-06-19 15:46:43,207 - INFO - Fetching: https://www.hsc.co.ke/casestudy-region/west-africa/
+2025-06-19 15:46:43,209 - INFO - Fetching: https://www.hsc.co.ke/casestudy-region/southern-africa/
+2025-06-19 15:46:43,211 - INFO - Fetching: https://www.hsc.co.ke/casestudy-region/east-africa/
+2025-06-19 15:46:43,212 - INFO - Fetching: https://www.hsc.co.ke/casestudy-sector/healthcare/
+2025-06-19 15:46:43,215 - INFO - Fetching: https://www.hsc.co.ke/casestudy-sector/financial/
+2025-06-19 15:46:47,385 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css → wp_clone/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css
+2025-06-19 15:46:47,389 - INFO - Saved page: wp_clone/casestudy-region/southern-africa/index.html
+2025-06-19 15:46:47,867 - INFO - Saved page: wp_clone/casestudy-region/east-africa/index.html
+2025-06-19 15:46:48,188 - INFO - Saved page: wp_clone/casestudy-sector/financial/index.html
+2025-06-19 15:46:48,615 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css → wp_clone/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css
+2025-06-19 15:46:48,616 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css → wp_clone/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css
+2025-06-19 15:46:48,619 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2023/03/casestudy-kenya-women-featured.jpg → wp_clone/wp-content/uploads/2023/03/casestudy-kenya-women-featured.jpg
+2025-06-19 15:46:48,651 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css → wp_clone/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css
+2025-06-19 15:46:48,900 - INFO - Saved page: wp_clone/casestudy-sector/healthcare/index.html
+2025-06-19 15:46:49,396 - INFO - Saved page: wp_clone/casestudy-region/west-africa/index.html
+2025-06-19 15:46:49,847 - INFO - Fetching: https://www.hsc.co.ke/casestudy-sector/corporate/
+2025-06-19 15:46:49,849 - INFO - Fetching: https://www.hsc.co.ke/case-study/star-land-hotel-bastos-yaounde/
+2025-06-19 15:46:49,852 - INFO - Fetching: https://www.hsc.co.ke/casestudy-scope/automation-iot/
+2025-06-19 15:46:49,861 - INFO - Fetching: https://www.hsc.co.ke/casestudy-scope/audio-visual/
+2025-06-19 15:46:49,863 - INFO - Fetching: https://www.hsc.co.ke/casestudy-scope/infotainment/
+2025-06-19 15:46:49,864 - INFO - Fetching: https://www.hsc.co.ke/case-study/radisson-blu-waterfront/
+2025-06-19 15:46:54,628 - INFO - Saved page: wp_clone/casestudy-sector/corporate/index.html
+2025-06-19 15:46:54,992 - INFO - Saved page: wp_clone/casestudy-scope/infotainment/index.html
+2025-06-19 15:46:55,658 - INFO - Saved page: wp_clone/casestudy-scope/automation-iot/index.html
+2025-06-19 15:46:56,057 - INFO - Saved page: wp_clone/casestudy-scope/audio-visual/index.html
+2025-06-19 15:46:56,596 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2023/03/icon-png-system-alarm-1.png → wp_clone/wp-content/uploads/2023/03/icon-png-system-alarm-1.png
+2025-06-19 15:46:56,597 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2023/03/casestudy-starland-bastos-yaounde-logo.jpg → wp_clone/wp-content/uploads/2023/03/casestudy-starland-bastos-yaounde-logo.jpg
+2025-06-19 15:46:56,661 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2023/03/casestudy-radisson-blu-ceo.png → wp_clone/wp-content/uploads/2023/03/casestudy-radisson-blu-ceo.png
+2025-06-19 15:46:56,661 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2023/03/casestudy-radisson-blu-antananarivo-logo.jpg → wp_clone/wp-content/uploads/2023/03/casestudy-radisson-blu-antananarivo-logo.jpg
+2025-06-19 15:46:57,598 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2023/03/icon-png-system-lightbulb.png → wp_clone/wp-content/uploads/2023/03/icon-png-system-lightbulb.png
+2025-06-19 15:46:58,133 - INFO - Saved page: wp_clone/case-study/star-land-hotel-bastos-yaounde/index.html
+2025-06-19 15:46:58,635 - INFO - Saved page: wp_clone/case-study/radisson-blu-waterfront/index.html
+2025-06-19 15:46:59,141 - INFO - Fetching: https://www.hsc.co.ke/casestudy-scope/networks-comms/
+2025-06-19 15:46:59,142 - INFO - Fetching: https://www.hsc.co.ke/casestudy-scope/security-safety/
+2025-06-19 15:47:00,774 - INFO - Saved page: wp_clone/casestudy-scope/networks-comms/index.html
+2025-06-19 15:47:01,927 - INFO - Saved page: wp_clone/casestudy-scope/security-safety/index.html
+2025-06-19 15:47:02,376 - INFO - Fetching: https://www.hsc.co.ke/case-study/microsoft-kenya/
+2025-06-19 15:47:04,290 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2023/03/casestudy-microsoft-kenya-logo.jpg → wp_clone/wp-content/uploads/2023/03/casestudy-microsoft-kenya-logo.jpg
+2025-06-19 15:47:04,562 - INFO - Saved page: wp_clone/case-study/microsoft-kenya/index.html
+2025-06-19 15:47:05,590 - INFO - Fetching: https://www.hsc.co.ke/case-study/diplomatic-housing/
+2025-06-19 15:47:07,921 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2023/03/icon-png-system-alarm.png → wp_clone/wp-content/uploads/2023/03/icon-png-system-alarm.png
+2025-06-19 15:47:08,081 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2023/03/casestudy-diplomatic-housing-logo.jpg → wp_clone/wp-content/uploads/2023/03/casestudy-diplomatic-housing-logo.jpg
+2025-06-19 15:47:08,704 - INFO - Saved page: wp_clone/case-study/diplomatic-housing/index.html
+2025-06-19 15:47:10,397 - INFO - Fetching: https://www.hsc.co.ke/case-study/
+2025-06-19 15:47:14,397 - INFO - Saved page: wp_clone/case-study/index.html
+2025-06-19 15:47:15,565 - INFO - Fetching: https://www.hsc.co.ke/case-study/movenpick-nairobi/
+2025-06-19 15:47:18,042 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2023/03/casestudy-movenpick-nairobi-logo.jpg → wp_clone/wp-content/uploads/2023/03/casestudy-movenpick-nairobi-logo.jpg
+2025-06-19 15:47:18,168 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2023/03/icon-png-audio-visual-a.png → wp_clone/wp-content/uploads/2023/03/icon-png-audio-visual-a.png
+2025-06-19 15:47:18,188 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2023/03/icon-png-wifi-a.png → wp_clone/wp-content/uploads/2023/03/icon-png-wifi-a.png
+2025-06-19 15:47:18,350 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2023/03/icon-png-shield-a.png → wp_clone/wp-content/uploads/2023/03/icon-png-shield-a.png
+2025-06-19 15:47:18,787 - INFO - Saved page: wp_clone/case-study/movenpick-nairobi/index.html
+2025-06-19 15:47:20,597 - INFO - Fetching: https://www.hsc.co.ke/apps/
+2025-06-19 15:47:20,600 - INFO - Fetching: https://www.hsc.co.ke/apps/feedback-future-ready-networks/
+2025-06-19 15:47:20,601 - INFO - Fetching: https://www.hsc.co.ke/25years2/
+2025-06-19 15:47:20,602 - INFO - Fetching: https://www.hsc.co.ke/ev1/
+2025-06-19 15:47:20,606 - INFO - Fetching: https://www.hsc.co.ke/no-access/
+2025-06-19 15:47:20,854 - INFO - Fetching: https://www.hsc.co.ke/home-b/
+2025-06-19 15:47:20,860 - INFO - Fetching: https://www.hsc.co.ke/careers/vacancy-elv-support-tanzania/
+2025-06-19 15:47:28,595 - INFO - Saved page: wp_clone/25years2/index.html
+2025-06-19 15:47:29,122 - INFO - Saved page: wp_clone/apps/index.html
+2025-06-19 15:47:32,868 - INFO - Saved page: wp_clone/no-access/index.html
+2025-06-19 15:47:35,123 - INFO - Saved page: wp_clone/home-b/index.html
+2025-06-19 15:47:36,527 - INFO - Saved page: wp_clone/careers/vacancy-elv-support-tanzania/index.html
+2025-06-19 15:47:37,072 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2025/02/event-b-cover1.jpg → wp_clone/wp-content/uploads/2025/02/event-b-cover1.jpg
+2025-06-19 15:47:37,075 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2025/02/weston-event-slide3.jpg → wp_clone/wp-content/uploads/2025/02/weston-event-slide3.jpg
+2025-06-19 15:47:37,079 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/plugins/elementor/assets/css/widget-image-carousel.min.css → wp_clone/wp-content/plugins/elementor/assets/css/widget-image-carousel.min.css
+2025-06-19 15:47:37,082 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js → wp_clone/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js
+2025-06-19 15:47:37,234 - INFO - Saved page: wp_clone/apps/feedback-future-ready-networks/index.html
+2025-06-19 15:47:37,890 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2025/02/weston-event-slide5.jpg → wp_clone/wp-content/uploads/2025/02/weston-event-slide5.jpg
+2025-06-19 15:47:38,297 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2025/02/weston-event-slide1.jpg → wp_clone/wp-content/uploads/2025/02/weston-event-slide1.jpg
+2025-06-19 15:47:38,301 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2025/02/weston-event-slide6.jpg → wp_clone/wp-content/uploads/2025/02/weston-event-slide6.jpg
+2025-06-19 15:47:38,807 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2025/02/weston-event-slide4.jpg → wp_clone/wp-content/uploads/2025/02/weston-event-slide4.jpg
+2025-06-19 15:47:38,853 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2025/02/weston-event-slide2.jpg → wp_clone/wp-content/uploads/2025/02/weston-event-slide2.jpg
+2025-06-19 15:47:38,900 - INFO - Saved page: wp_clone/ev1/index.html
+2025-06-19 15:47:38,992 - INFO - Fetching: https://www.hsc.co.ke/case-study/kwcwc/
+2025-06-19 15:47:38,996 - INFO - Fetching: https://www.hsc.co.ke/casestudy-systems/access-control/
+2025-06-19 15:47:38,998 - INFO - Fetching: https://www.hsc.co.ke/casestudy-systems/audio-visual/
+2025-06-19 15:47:42,131 - INFO - Saved page: wp_clone/casestudy-systems/audio-visual/index.html
+2025-06-19 15:47:42,831 - INFO - Saved page: wp_clone/casestudy-systems/access-control/index.html
+2025-06-19 15:47:43,515 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2023/03/icon-png-system-videowall.png → wp_clone/wp-content/uploads/2023/03/icon-png-system-videowall.png
+2025-06-19 15:47:43,517 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2023/03/casestudy-kenya-women-logo.jpg → wp_clone/wp-content/uploads/2023/03/casestudy-kenya-women-logo.jpg
+2025-06-19 15:47:43,517 - INFO - Saved resource: https://www.hsc.co.ke/wp-content/uploads/2023/03/icon-png-system-access-control.png → wp_clone/wp-content/uploads/2023/03/icon-png-system-access-control.png
+2025-06-19 15:47:44,032 - INFO - Saved page: wp_clone/case-study/kwcwc/index.html
+2025-06-19 15:47:45,551 - INFO - Fetching: https://www.hsc.co.ke/casestudy-systems/background-music/
+2025-06-19 15:47:45,555 - INFO - Fetching: https://www.hsc.co.ke/casestudy-systems/building-management/
+2025-06-19 15:47:45,561 - INFO - Fetching: https://www.hsc.co.ke/casestudy-systems/content-casting/
+2025-06-19 15:47:45,564 - INFO - Fetching: https://www.hsc.co.ke/casestudy-systems/digital-signage/
+2025-06-19 15:47:45,565 - INFO - Fetching: https://www.hsc.co.ke/casestudy-systems/voice-evacuation/
+2025-06-19 15:47:45,570 - INFO - Fetching: https://www.hsc.co.ke/casestudy-systems/internet-access/
+2025-06-19 15:47:45,582 - INFO - Fetching: https://www.hsc.co.ke/casestudy-systems/hotel-iptv/
+2025-06-19 15:47:45,583 - INFO - Fetching: https://www.hsc.co.ke/casestudy-systems/ip-telephony/
+2025-06-19 15:47:45,585 - INFO - Fetching: https://www.hsc.co.ke/casestudy-systems/large-displays/
+2025-06-19 15:47:45,586 - INFO - Fetching: https://www.hsc.co.ke/casestudy-systems/lighting-control/
+2025-06-19 15:47:54,032 - INFO - Saved page: wp_clone/casestudy-systems/building-management/index.html
+2025-06-19 15:47:54,542 - INFO - Saved page: wp_clone/casestudy-systems/background-music/index.html
+2025-06-19 15:47:56,032 - INFO - Saved page: wp_clone/casestudy-systems/ip-telephony/index.html
+2025-06-19 15:47:57,352 - INFO - Saved page: wp_clone/casestudy-systems/content-casting/index.html
+2025-06-19 15:47:58,897 - INFO - Saved page: wp_clone/casestudy-systems/hotel-iptv/index.html
+2025-06-19 15:48:01,318 - INFO - Saved page: wp_clone/casestudy-systems/voice-evacuation/index.html
+2025-06-19 15:48:01,877 - INFO - Saved page: wp_clone/casestudy-systems/internet-access/index.html
+2025-06-19 15:48:02,275 - INFO - Saved page: wp_clone/casestudy-systems/large-displays/index.html
+2025-06-19 15:48:02,891 - INFO - Saved page: wp_clone/casestudy-systems/digital-signage/index.html
+2025-06-19 15:48:03,383 - INFO - Saved page: wp_clone/casestudy-systems/lighting-control/index.html
+2025-06-19 15:48:03,657 - INFO - Fetching: https://www.hsc.co.ke/casestudy-systems/network-infrastructure/
+2025-06-19 15:48:03,658 - INFO - Fetching: https://www.hsc.co.ke/casestudy-systems/structured-cabling/
+2025-06-19 15:48:03,660 - INFO - Fetching: https://www.hsc.co.ke/casestudy-systems/video-surveillance-cctv/
+2025-06-19 15:48:03,661 - INFO - Fetching: https://www.hsc.co.ke/casestudy-systems/video-wall/
+2025-06-19 15:48:07,190 - INFO - Saved page: wp_clone/casestudy-systems/video-wall/index.html
+2025-06-19 15:48:07,560 - INFO - Saved page: wp_clone/casestudy-systems/structured-cabling/index.html
+2025-06-19 15:48:07,909 - INFO - Saved page: wp_clone/casestudy-systems/network-infrastructure/index.html
+2025-06-19 15:48:08,376 - INFO - Saved page: wp_clone/casestudy-systems/video-surveillance-cctv/index.html
+2025-06-19 15:48:10,128 - INFO - Generated WXR XML file: wp_clone/wordpress_export.xml
+2025-06-19 15:48:10,245 - INFO - Completed! Crawled 125 resources.
