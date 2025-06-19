@@ -1,0 +1,11 @@
+{
+    "base_url": "https://www.hsc.co.ke",
+    "output_root": "wp_clone",
+    "username": "your_admin_username",
+    "password": "your_admin_password",
+    "verify_ssl": true,
+    "max_pages": 10000,
+    "timeout": 15,
+    "max_concurrent": 10,
+    "max_retries": 4
+}

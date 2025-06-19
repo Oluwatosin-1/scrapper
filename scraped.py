@@ -18,7 +18,7 @@ except ImportError as e:
 
 # Configuration
 CONFIG = {
-    'base_url': 'https://www.hsc.co.ke',  # Override via CLI
+    'base_url': 'https://www.example.com',  # Override via CLI
     'output_root': 'site_clone',
     'max_pages': 10000,  # Maximum pages to crawl to prevent infinite loops
     'timeout': 15,  # HTTP request timeout (seconds)

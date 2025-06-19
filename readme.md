@@ -20,16 +20,19 @@ This project provides two Python scripts for website cloning:
 
 **For Mac/Linux:**
 ```bash
+python3 -m venv venv
 source venv/bin/activate
 ```
 
 **For Windows (Command Prompt):**
 ```cmd
+python -m venv venv 
 venv\Scripts\activate
 ```
 
 **For Windows (PowerShell):**
 ```powershell
+python -m venv venv
 venv\Scripts\Activate.ps1
 ```
 
@@ -43,8 +46,10 @@ venv\Scripts\Activate.ps1
 Install all dependencies with:
 
 ```sh
-pip install --upgrade pip
+pip install --upgrade pip 
+pip install requests beautifulsoup4 aiohttp aiofiles certifi
 pip install --upgrade requests beautifulsoup4 aiohttp aiofiles certifi
+export SSL_CERT_FILE=$(python -m certifi)  # macOS/Linux
 ```
 
 ---
@@ -86,7 +91,7 @@ python3 wp_cloner.py [BASE_URL] [OUTPUT_DIR]
 Example:
 
 ```sh
-python3 wp_cloner.py https://mywordpresssite.com/ my_wp_clone
+python3 wp_cloner.py https://mywordpresssite.com/ my_wp_clone 
 ```
 
 This will create a `my_wp_clone` directory with WordPress core folders and files.

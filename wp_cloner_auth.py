@@ -10,6 +10,8 @@ from pathlib import Path
 import re
 import certifi
 import ssl
+import json
+import argparse
 try:
     from bs4 import BeautifulSoup
     import xml.etree.ElementTree as ET
@@ -19,21 +21,29 @@ except ImportError as e:
     sys.exit(1)
 
 # Configuration
-CONFIG = {
-    'base_url': 'https://example.com',  # Override via CLI
+DEFAULT_CONFIG = {
+    'base_url': 'https://example.com',
     'output_root': 'wp_clone',
-    'max_pages': 10000,  # Maximum pages to prevent infinite loops
-    'timeout': 15,  # HTTP request timeout (seconds)
-    'max_concurrent': 10,  # Concurrent downloads
-    'max_retries': 3,  # Retry attempts for failed requests
-    'asset_types': {'.css', '.js', '.jpg', '.jpeg', '.png', '.gif', '.woff', '.woff2', '.ttf', '.svg', '.php', '.ico'},
-    'exclude_patterns': {r'.*wp-config\.php$', r'.*wp-login\.php$', r'.*\.sql$', r'.*\.zip$'},
-    'user_agent': 'Mozilla/5.0 (compatible; WPCloner/1.1)',
+    'max_pages': 10000,
+    'timeout': 15,
+    'max_concurrent': 10,
+    'max_retries': 3,
+    'asset_types': {'.css', '.js', '.jpg', '.jpeg', '.png', '.gif', '.woff', '.woff2', '.ttf', '.svg', '.php', '.ico', '.sql', '.zip'},
+    'exclude_patterns': {r'.*wp-config-sample\.php$', r'.*wp-login\.php$'},
+    'user_agent': 'Mozilla/5.0 (compatible; WPCloner/1.2)',
     'follow_sitemap': True,
-    'fetch_json': True,  # Fetch WordPress REST API
+    'fetch_json': True,
     'wp_folders': {'wp-content', 'wp-admin', 'wp-includes'},
-    'verify_ssl': True,  # Set to False to disable SSL verification (insecure)
-    'ca_bundle': certifi.where(),  # Path to CA bundle
+    'verify_ssl': True,
+    'ca_bundle': certifi.where(),
+    'username': '',
+    'password': '',
+    'backup_paths': [
+        'wp-content/uploads/updraft/',
+        'wp-content/backupwordpress/',
+        'wp-content/plugins/duplicator/backup/',
+        'phpmyadmin/export.php',
+    ],
 }
 
 # Setup logging
@@ -46,6 +56,19 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger(__name__)
+
+def load_config(config_file='config.json'):
+    """Load configuration from JSON file if exists."""
+    config = DEFAULT_CONFIG.copy()
+    if Path(config_file).exists():
+        try:
+            with open(config_file, 'r') as f:
+                file_config = json.load(f)
+            config.update(file_config)
+            logger.info(f"Loaded configuration from {config_file}")
+        except Exception as e:
+            logger.warning(f"Failed to load config file {config_file}: {e}")
+    return config
 
 def normalize_url(url):
     """Normalize URL by removing fragments and standardizing format."""
@@ -65,19 +88,57 @@ def is_valid_url(url, base_domain):
     parsed = urlparse(url)
     return parsed.netloc.lower() == base_domain
 
+async def login(session, base_url, username, password):
+    """Attempt to log in to WordPress via wp-login.php."""
+    login_url = urljoin(base_url, 'wp-login.php')
+    try:
+        # Get login page to extract any hidden fields (e.g., nonce)
+        async with session.get(login_url, timeout=CONFIG['timeout']) as resp:
+            resp.raise_for_status()
+            soup = BeautifulSoup(await resp.text(), 'html.parser')
+            login_form = soup.find('form', id='loginform')
+            if not login_form:
+                logger.warning("Could not find login form on wp-login.php")
+                return False
+            # Extract hidden inputs
+            data = {
+                'log': username,
+                'pwd': password,
+                'wp-submit': 'Log In',
+                'redirect_to': urljoin(base_url, 'wp-admin/'),
+            }
+            for inp in login_form.find_all('input', type='hidden'):
+                if inp.get('name'):
+                    data[inp['name']] = inp.get('value', '')
+        # Post login credentials
+        async with session.post(login_url, data=data, timeout=CONFIG['timeout'], allow_redirects=True) as resp:
+            if 'wp-admin' in resp.url or resp.status == 200:
+                logger.info(f"Login successful for {username}")
+                return True
+            else:
+                logger.error(f"Login failed for {username}: Status {resp.status}")
+                return False
+    except Exception as e:
+        logger.error(f"Login error: {e}")
+        return False
+
 async def fetch_sitemap_urls(base_url, session):
     """Fetch and parse sitemap.xml for URLs."""
     sitemap = base_url.rstrip('/') + '/sitemap.xml'
-    try:
-        async with session.get(sitemap, timeout=CONFIG['timeout']) as resp:
-            resp.raise_for_status()
-            root = ET.fromstring(await resp.text())
-            urls = [normalize_url(loc.text.strip()) for loc in root.findall('.//{*}loc') if loc.text]
-            logger.info(f"Found {len(urls)} URLs in sitemap.xml")
-            return [url for url in urls if url]
-    except Exception as e:
-        logger.warning(f"Failed to fetch sitemap {sitemap}: {e}")
-        return []
+    for attempt in range(CONFIG['max_retries']):
+        try:
+            async with session.get(sitemap, timeout=CONFIG['timeout']) as resp:
+                resp.raise_for_status()
+                root = ET.fromstring(await resp.text())
+                urls = [normalize_url(loc.text.strip()) for loc in root.findall('.//{*}loc') if loc.text]
+                logger.info(f"Found {len(urls)} URLs in sitemap.xml")
+                return [url for url in urls if url]
+        except Exception as e:
+            logger.warning(f"Attempt {attempt + 1}/{CONFIG['max_retries']} failed for sitemap {sitemap}: {e}")
+            if attempt + 1 < CONFIG['max_retries']:
+                await asyncio.sleep(1)
+    logger.error(f"Failed to fetch sitemap {sitemap} after {CONFIG['max_retries']} attempts")
+    return []
 
 async def fetch_json_urls(url, session):
     """Fetch WordPress REST API endpoints."""
@@ -90,13 +151,17 @@ async def fetch_json_urls(url, session):
     ]
     json_urls = []
     for endpoint in possible_endpoints:
-        try:
-            async with session.get(endpoint, timeout=CONFIG['timeout']) as resp:
-                if resp.status == 200 and 'application/json' in resp.headers.get('Content-Type', ''):
-                    json_urls.append(endpoint)
-                    logger.info(f"Found JSON endpoint: {endpoint}")
-        except Exception:
-            continue
+        for attempt in range(CONFIG['max_retries']):
+            try:
+                async with session.get(endpoint, timeout=CONFIG['timeout']) as resp:
+                    if resp.status == 200 and 'application/json' in resp.headers.get('Content-Type', ''):
+                        json_urls.append(endpoint)
+                        logger.info(f"Found JSON endpoint: {endpoint}")
+                        break
+            except Exception as e:
+                logger.warning(f"Attempt {attempt + 1}/{CONFIG['max_retries']} failed for {endpoint}: {e}")
+                if attempt + 1 < CONFIG['max_retries']:
+                    await asyncio.sleep(1)
     return json_urls
 
 async def save_resource(url, dest_path, session):
@@ -112,6 +177,8 @@ async def save_resource(url, dest_path, session):
                     content = await resp.text()
                     soup = BeautifulSoup(content, 'html.parser')
                     content = soup.prettify()
+                elif 'application/sql' in content_type or url.endswith('.sql'):
+                    content = await resp.text()
                 else:
                     content = await resp.read()
                 dest_path.parent.mkdir(parents=True, exist_ok=True)
@@ -122,7 +189,7 @@ async def save_resource(url, dest_path, session):
         except Exception as e:
             logger.warning(f"Attempt {attempt + 1}/{CONFIG['max_retries']} failed for {url}: {e}")
             if attempt + 1 < CONFIG['max_retries']:
-                await asyncio.sleep(1)  # Backoff before retry
+                await asyncio.sleep(1)
     logger.error(f"Failed to download {url} after {CONFIG['max_retries']} attempts")
     return None
 
@@ -136,6 +203,8 @@ def url_to_filepath(url, base_domain, root_dir):
         return Path(root_dir) / path
     if path.endswith('.php') and '/' not in path:
         return Path(root_dir) / path
+    if path.endswith('.sql') or path.endswith('.zip'):
+        return Path(root_dir) / 'backup' / os.path.basename(path)
     if not os.path.splitext(path)[1]:
         return Path(root_dir) / path / 'index.html'
     return Path(root_dir) / path
@@ -155,7 +224,7 @@ async def process_url(url, base_domain, root_dir, session, visited, queue):
         async with session.get(norm_url, timeout=CONFIG['timeout']) as resp:
             resp.raise_for_status()
             content_type = resp.headers.get('Content-Type', '').lower()
-            if 'text/html' not in content_type and not norm_url.endswith(('.php', '.css', '.js')):
+            if 'text/html' not in content_type and not norm_url.endswith(('.php', '.css', '.js', '.sql', '.zip')):
                 return
             html_text = await resp.text() if 'text/html' in content_type else None
     except Exception as e:
@@ -198,31 +267,48 @@ def make_relative(from_path, to_path):
     rel = os.path.relpath(to_path, os.path.dirname(from_path))
     return rel.replace(os.sep, '/')
 
-async def scrape_wp_site(base_url=None, output_root=None):
+async def scrape_wp_site(base_url=None, output_root=None, username=None, password=None):
     """Main WordPress cloning function."""
-    base_url = base_url or CONFIG['base_url']
-    output_root = output_root or CONFIG['output_root']
-    base_domain = urlparse(base_url).netloc.lower()
-    root_dir = Path(output_root)
+    global CONFIG
+    CONFIG['base_url'] = base_url or CONFIG['base_url']
+    CONFIG['output_root'] = output_root or CONFIG['output_root']
+    CONFIG['username'] = username or CONFIG['username']
+    CONFIG['password'] = password or CONFIG['password']
+    base_domain = urlparse(CONFIG['base_url']).netloc.lower()
+    root_dir = Path(CONFIG['output_root'])
 
     visited = set()
-    queue = deque([normalize_url(base_url)])
+    queue = deque([normalize_url(CONFIG['base_url'])])
     headers = {'User-Agent': CONFIG['user_agent']}
 
     # Configure SSL context
     ssl_context = None if not CONFIG['verify_ssl'] else ssl.create_default_context(cafile=CONFIG['ca_bundle'])
 
     async with aiohttp.ClientSession(headers=headers, connector=aiohttp.TCPConnector(ssl=ssl_context)) as session:
+        # Attempt login if credentials provided
+        if CONFIG['username'] and CONFIG['password']:
+            if await login(session, CONFIG['base_url'], CONFIG['username'], CONFIG['password']):
+                logger.info("Proceeding with authenticated session")
+            else:
+                logger.warning("Continuing without authenticated session")
+        else:
+            logger.info("No credentials provided, crawling public content only")
+
+        # Seed with sitemap
         if CONFIG['follow_sitemap']:
-            sitemap_urls = await fetch_sitemap_urls(base_url, session)
+            sitemap_urls = await fetch_sitemap_urls(CONFIG['base_url'], session)
             for url in sitemap_urls:
                 if url not in visited and is_valid_url(url, base_domain):
                     queue.append(url)
+
+        # Fetch JSON endpoints
         if CONFIG['fetch_json']:
-            json_urls = await fetch_json_urls(base_url, session)
+            json_urls = await fetch_json_urls(CONFIG['base_url'], session)
             for url in json_urls:
                 if url not in visited and is_valid_url(url, base_domain):
                     queue.append(url)
+
+        # Seed with WordPress core paths
         wp_core_paths = [
             'wp-content/themes/',
             'wp-content/plugins/',
@@ -230,13 +316,22 @@ async def scrape_wp_site(base_url=None, output_root=None):
             'wp-includes/',
             'index.php',
             'wp-blog-header.php',
+            'wp-config.php',  # Attempt to fetch config
         ]
         for path in wp_core_paths:
-            abs_url = urljoin(base_url, path)
+            abs_url = urljoin(CONFIG['base_url'], path)
             norm_url = normalize_url(abs_url)
             if norm_url and norm_url not in visited and is_valid_url(norm_url, base_domain):
                 queue.append(norm_url)
 
+        # Seed with backup paths
+        for path in CONFIG['backup_paths']:
+            abs_url = urljoin(CONFIG['base_url'], path)
+            norm_url = normalize_url(abs_url)
+            if norm_url and norm_url not in visited and is_valid_url(norm_url, base_domain):
+                queue.append(norm_url)
+
+        # Process URLs
         semaphore = asyncio.Semaphore(CONFIG['max_concurrent'])
         async def bounded_process(url):
             async with semaphore:
@@ -254,10 +349,24 @@ async def scrape_wp_site(base_url=None, output_root=None):
 
     logger.info(f"Completed! Crawled {len(visited)} resources.")
 
+def parse_args():
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser(description='Clone a WordPress site.')
+    parser.add_argument('base_url', nargs='?', default=DEFAULT_CONFIG['base_url'], help='Base URL of the WordPress site')
+    parser.add_argument('output_root', nargs='?', default=DEFAULT_CONFIG['output_root'], help='Output directory for cloned files')
+    parser.add_argument('--username', help='WordPress admin username')
+    parser.add_argument('--password', help='WordPress admin password')
+    parser.add_argument('--config', default='config.json', help='Path to configuration JSON file')
+    parser.add_argument('--no-ssl-verify', action='store_true', help='Disable SSL verification (insecure)')
+    return parser.parse_args()
+
 async def main():
-    base = sys.argv[1] if len(sys.argv) > 1 else CONFIG['base_url']
-    out = sys.argv[2] if len(sys.argv) > 2 else CONFIG['output_root']
-    await scrape_wp_site(base, out)
+    args = parse_args()
+    global CONFIG
+    CONFIG = load_config(args.config)
+    if args.no_ssl_verify:
+        CONFIG['verify_ssl'] = False
+    await scrape_wp_site(args.base_url, args.output_root, args.username, args.password)
 
 if __name__ == '__main__':
     asyncio.run(main())
