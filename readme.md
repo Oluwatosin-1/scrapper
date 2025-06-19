@@ -1,9 +1,21 @@
-# Web Scrapper
+# Web Scraper & WordPress Cloner
 
-This project is a simple web scraper and HTML extractor for cloning static websites. It consists of two main scripts:
+This project provides two Python scripts for website cloning:
 
-- [`scraped.py`](scraped.py): Crawls a website, downloads HTML pages, CSS, and JS assets, and rewrites links for local use.
-- [`extract.py`](extract.py): Cleans and rewrites an existing HTML file's asset links for local usage.
+- [`scraped.py`](scraped.py): A general-purpose website scraper that downloads HTML pages and static assets, rewriting links for local use.
+- [`wp_cloner.py`](wp_cloner.py): A WordPress-focused cloner that preserves WordPress directory structure and attempts to fetch WordPress-specific resources.
+
+---
+
+## Features
+
+- Recursively downloads all internal HTML pages and static assets (CSS, JS, images, fonts, etc.).
+- Rewrites asset links for local usage.
+- Handles `sitemap.xml` for improved coverage.
+- Skips external domains and duplicate pages.
+- [`wp_cloner.py`](wp_cloner.py) preserves WordPress folder structure and fetches WordPress REST API endpoints.
+
+---
 ## Activate Virtual Environment
 
 **For Mac/Linux:**
@@ -20,21 +32,26 @@ venv\Scripts\activate
 ```powershell
 venv\Scripts\Activate.ps1
 ```
+
 ## Requirements
 
 - Python 3.6+
-- [requests](https://pypi.org/project/requests/)
+- [aiohttp](https://pypi.org/project/aiohttp/)
+- [aiofiles](https://pypi.org/project/aiofiles/)
 - [beautifulsoup4](https://pypi.org/project/beautifulsoup4/)
 
-Install dependencies with:
+Install all dependencies with:
 
 ```sh
-pip install requests beautifulsoup4
+pip install --upgrade pip
+pip install --upgrade requests beautifulsoup4 aiohttp aiofiles certifi
 ```
+
+---
 
 ## Usage
 
-### 1. Scrape a Website
+### 1. General Website Scraper
 
 Clone a website to your local machine:
 
@@ -51,39 +68,40 @@ Example:
 python3 scraped.py https://example.com/ my_clone
 ```
 
-This will create a `my_clone` directory with `html/`, `css/`, and `js/` subfolders.
+This will create a `my_clone` directory with subfolders for HTML, CSS, JS, images, etc.
 
-### 2. Clean and Rewrite HTML
+---
 
-After scraping, you can clean and rewrite asset links in an HTML file:
+### 2. WordPress Cloner
+
+Clone a WordPress site, preserving its structure:
 
 ```sh
-python3 extract.py [INPUT_HTML] [OUTPUT_HTML]
+python3 wp_cloner.py [BASE_URL] [OUTPUT_DIR]
 ```
 
-- `INPUT_HTML` (optional): Path to the HTML file to process (default: tries to auto-detect)
-- `OUTPUT_HTML` (optional): Path to save the cleaned HTML (default: `index.html`)
+- `BASE_URL` (optional): The root URL to start scraping (default: `https://www.hsc.co.ke/`)
+- `OUTPUT_DIR` (optional): Directory to save the cloned site (default: `wp_clone`)
 
 Example:
 
 ```sh
-python3 extract.py my_clone/html/index.html cleaned_index.html
+python3 wp_cloner.py https://mywordpresssite.com/ my_wp_clone
 ```
 
-## Features
+This will create a `my_wp_clone` directory with WordPress core folders and files.
 
-- Recursively downloads all internal HTML pages, CSS, and JS assets.
-- Rewrites asset links for local usage.
-- Handles sitemap.xml if available for better coverage.
-- Skips external domains and duplicate pages.
+---
+
+## Logging
+
+- [`scraped.py`](scraped.py) logs to `site_clone.log`.
+- [`wp_cloner.py`](wp_cloner.py) logs to `wp_clone.log`.
+
+---
 
 ## Notes
 
 - Only static content is supported. Dynamic content loaded via JavaScript will not be scraped.
 - For large sites, scraping may take a while and use significant disk space.
-
-## License
-
-MIT License
-
----
+- Make sure you have permission
