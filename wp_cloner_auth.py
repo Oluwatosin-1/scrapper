@@ -22,8 +22,8 @@ except ImportError as e:
 
 # Configuration
 DEFAULT_CONFIG = {
-    'base_url': 'https://example.com',
-    'output_root': 'wp_clone',
+    'base_url': 'https://www.hsc.co.ke',
+    'output_root': 'wp_clone_auth',
     'max_pages': 10000,
     'timeout': 15,
     'max_concurrent': 10,

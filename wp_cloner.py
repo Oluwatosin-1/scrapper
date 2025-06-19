@@ -20,8 +20,8 @@ except ImportError as e:
 
 # Configuration
 CONFIG = {
-    'base_url': 'https://example.com',  # Override via CLI
-    'output_root': 'wp_clone',
+    'base_url': 'https://www.hsc.co.ke',  # Override via CLI
+    'output_root': 'wp_clone_output',  # Override via CLI
     'max_pages': 10000,  # Maximum pages to prevent infinite loops
     'timeout': 15,  # HTTP request timeout (seconds)
     'max_concurrent': 10,  # Concurrent downloads
