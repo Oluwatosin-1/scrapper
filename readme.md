@@ -110,3 +110,24 @@ This will create a `my_wp_clone` directory with WordPress core folders and files
 - Only static content is supported. Dynamic content loaded via JavaScript will not be scraped.
 - For large sites, scraping may take a while and use significant disk space.
 - Make sure you have permission
+
+Use WP All Import:
+Install the WP All Import plugin on your WordPress site.
+Go to All Import > New Import.
+Upload pages.json and map fields:
+title → Page Title
+content → Page Content
+slug → Page Slug
+status → Status (Publish)
+Run the import to create pages.
+Manually upload assets from wp_clone/wp-content/uploads/ to the media library via Media > Add New.
+Edit with Elementor:
+In WordPress admin, go to Pages > All Pages.
+Find the imported pages (e.g., “Home”, “About”).
+Click “Edit with Elementor” for each page.
+The HTML content will appear in a Text Editor widget or as raw content.
+Drag and drop Elementor widgets to rebuild layouts (e.g., replace <img> tags with Image widgets, text with Text Editor widgets).
+Save changes.
+Handle Assets:
+After importing assets to the media library, update image references in Elementor by selecting the uploaded media files.
+CSS/JS files in wp-content/themes/ can be added to your theme or enqueued manually.
