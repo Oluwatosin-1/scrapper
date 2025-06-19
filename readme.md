@@ -111,6 +111,13 @@ This will create a `my_wp_clone` directory with WordPress core folders and files
 - For large sites, scraping may take a while and use significant disk space.
 - Make sure you have permission
 
+Test with a Local WordPress:
+Set up a local WordPress site to test imports before deploying to production.
+Use REST API Data:
+If /wp-json/wp/v2/pages is accessible, prioritize importing those JSON files for cleaner Elementor integration.
+Backup Plugins:
+If you gain access to wp-admin, use a plugin like Duplicator to export a full site, including the database.
+
 Use WP All Import:
 Install the WP All Import plugin on your WordPress site.
 Go to All Import > New Import.
