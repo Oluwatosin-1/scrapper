@@ -1274,3 +1274,55 @@
 2025-06-19 13:10:43,940 - INFO - Saved resource: https://neobottech.com/wp-content/uploads/2025/06/10800995-scaled.jpg → neobot_tech/wp-content/uploads/2025/06/10800995-scaled.jpg
 2025-06-19 13:10:44,054 - INFO - Saved page: neobot_tech/service/mobile-app-development/index.html
 2025-06-19 13:10:44,056 - INFO - Completed! Crawled 175 resources.
+2025-06-19 14:08:26,634 - INFO - Loaded configuration from config.json
+2025-06-19 14:08:27,578 - WARNING - Attempt 1/4 failed for sitemap https://example.com/sitemap.xml: 404, message='Not Found', url='https://example.com/sitemap.xml'
+2025-06-19 14:08:29,041 - WARNING - Attempt 2/4 failed for sitemap https://example.com/sitemap.xml: 404, message='Not Found', url='https://example.com/sitemap.xml'
+2025-06-19 14:08:30,338 - WARNING - Attempt 3/4 failed for sitemap https://example.com/sitemap.xml: 404, message='Not Found', url='https://example.com/sitemap.xml'
+2025-06-19 14:08:31,626 - WARNING - Attempt 4/4 failed for sitemap https://example.com/sitemap.xml: 404, message='Not Found', url='https://example.com/sitemap.xml'
+2025-06-19 14:08:31,626 - ERROR - Failed to fetch sitemap https://example.com/sitemap.xml after 4 attempts
+2025-06-19 14:08:37,085 - INFO - Fetching: https://example.com/
+2025-06-19 14:08:37,087 - INFO - Fetching: https://example.com/wp-content/themes/
+2025-06-19 14:08:37,088 - INFO - Fetching: https://example.com/wp-content/plugins/
+2025-06-19 14:08:37,088 - INFO - Fetching: https://example.com/wp-admin/
+2025-06-19 14:08:37,089 - INFO - Fetching: https://example.com/wp-includes/
+2025-06-19 14:08:37,090 - INFO - Fetching: https://example.com/index.php
+2025-06-19 14:08:37,091 - INFO - Fetching: https://example.com/wp-blog-header.php
+2025-06-19 14:08:37,093 - INFO - Fetching: https://example.com/wp-config.php
+2025-06-19 14:08:37,101 - INFO - Fetching: https://example.com/wp-content/uploads/updraft/
+2025-06-19 14:08:37,101 - INFO - Fetching: https://example.com/wp-content/backupwordpress/
+2025-06-19 14:08:37,374 - INFO - Saved page: wp_clone/index.php
+2025-06-19 14:08:37,377 - INFO - Saved JSON: https://example.com/ → wp_clone/json/home.json
+2025-06-19 14:08:38,081 - ERROR - Failed to fetch https://example.com/wp-includes/: 404, message='Not Found', url='https://example.com/wp-includes/'
+2025-06-19 14:08:38,104 - ERROR - Failed to fetch https://example.com/wp-admin/: 404, message='Not Found', url='https://example.com/wp-admin/'
+2025-06-19 14:08:38,160 - ERROR - Failed to fetch https://example.com/wp-content/uploads/updraft/: 404, message='Not Found', url='https://example.com/wp-content/uploads/updraft/'
+2025-06-19 14:08:38,160 - ERROR - Failed to fetch https://example.com/wp-config.php: 404, message='Not Found', url='https://example.com/wp-config.php'
+2025-06-19 14:08:38,227 - ERROR - Failed to fetch https://example.com/index.php: 404, message='Not Found', url='https://example.com/index.php'
+2025-06-19 14:08:38,237 - ERROR - Failed to fetch https://example.com/wp-blog-header.php: 404, message='Not Found', url='https://example.com/wp-blog-header.php'
+2025-06-19 14:08:38,270 - ERROR - Failed to fetch https://example.com/wp-content/backupwordpress/: 404, message='Not Found', url='https://example.com/wp-content/backupwordpress/'
+2025-06-19 14:08:38,270 - ERROR - Failed to fetch https://example.com/wp-content/plugins/: 404, message='Not Found', url='https://example.com/wp-content/plugins/'
+2025-06-19 14:08:38,372 - ERROR - Failed to fetch https://example.com/wp-content/themes/: 404, message='Not Found', url='https://example.com/wp-content/themes/'
+2025-06-19 14:08:38,374 - INFO - Fetching: https://example.com/wp-content/plugins/duplicator/backup/
+2025-06-19 14:08:38,382 - INFO - Fetching: https://example.com/phpmyadmin/export.php
+2025-06-19 14:08:38,872 - ERROR - Failed to fetch https://example.com/wp-content/plugins/duplicator/backup/: 404, message='Not Found', url='https://example.com/wp-content/plugins/duplicator/backup/'
+2025-06-19 14:08:39,161 - ERROR - Failed to fetch https://example.com/phpmyadmin/export.php: 404, message='Not Found', url='https://example.com/phpmyadmin/export.php'
+2025-06-19 14:08:39,167 - INFO - Completed! Crawled 12 resources.
+2025-06-19 14:08:43,594 - INFO - Loaded configuration from config.json
+2025-06-19 14:08:48,175 - INFO - Found 10 URLs in sitemap.xml
+2025-06-19 14:08:49,859 - INFO - Saved JSON data: https://neobottech.com/wp-json/wp/v2/posts → wp_clone/json/1573787241154751566.json
+2025-06-19 14:08:52,243 - INFO - Saved JSON data: https://neobottech.com/wp-json/wp/v2/pages → wp_clone/json/-3460566045974247347.json
+2025-06-19 14:08:52,888 - INFO - Saved JSON data: https://neobottech.com/wp-json/wp/v2/media → wp_clone/json/-4885123456022241326.json
+2025-06-19 14:08:54,252 - INFO - Saved JSON data: https://neobottech.com/wp-json/ → wp_clone/json/-3075617274324501955.json
+2025-06-19 14:08:54,256 - INFO - Fetching: https://neobottech.com/
+2025-06-19 14:08:54,258 - INFO - Fetching: https://neobottech.com/post-sitemap.xml
+2025-06-19 14:08:54,262 - INFO - Fetching: https://neobottech.com/page-sitemap.xml
+2025-06-19 14:08:54,262 - INFO - Fetching: https://neobottech.com/pxl-template-sitemap.xml
+2025-06-19 14:08:54,263 - INFO - Fetching: https://neobottech.com/portfolio-sitemap.xml
+2025-06-19 14:08:54,263 - INFO - Fetching: https://neobottech.com/service-sitemap.xml
+2025-06-19 14:08:54,264 - INFO - Fetching: https://neobottech.com/product-sitemap.xml
+2025-06-19 14:08:54,265 - INFO - Fetching: https://neobottech.com/category-sitemap.xml
+2025-06-19 14:08:54,265 - INFO - Fetching: https://neobottech.com/portfolio-category-sitemap.xml
+2025-06-19 14:08:54,269 - INFO - Fetching: https://neobottech.com/product_cat-sitemap.xml
+2025-06-19 14:08:55,478 - INFO - Saved resource: https://neobottech.com/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-events-provider-woocommerce-4c846ed50de2fbdd0624.js → wp_clone/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-events-provider-woocommerce-4c846ed50de2fbdd0624.js
+2025-06-19 14:08:55,500 - INFO - Saved resource: https://neobottech.com/wp-content/uploads/2025/06/Neobot-Tech2.png → wp_clone/wp-content/uploads/2025/06/Neobot-Tech2.png
+2025-06-19 14:08:55,585 - INFO - Saved resource: https://neobottech.com/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-events-provider-mailchimp-489985e529ecb702cf8b.js → wp_clone/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-events-provider-mailchimp-489985e529ecb702cf8b.js
+2025-06-19 14:08:55,743 - INFO - Saved resource: https://neobottech.com/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-events-provider-contact-form-7-84e9a1056bc4922b7cbd.js → wp_clone/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-events-provider-contact-form-7-84e9a1056bc4922b7cbd.js
