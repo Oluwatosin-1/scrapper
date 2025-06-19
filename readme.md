@@ -110,7 +110,17 @@ This will create a `my_wp_clone` directory with WordPress core folders and files
 - Only static content is supported. Dynamic content loaded via JavaScript will not be scraped.
 - For large sites, scraping may take a while and use significant disk space.
 - Make sure you have permission
-
+- Check Output:
+HTML files and assets are in wp_clone/ with WordPress structure.
+JSON files are in wp_clone/json/ (e.g., home.json, about.json).
+REST API data (if fetched) is in wp_clone/json/ with hashed filenames.
+Import into WordPress:
+Use WP All Import or the custom importer plugin.
+Upload assets to your WordPress site.
+Update asset URLs in the content.
+Edit in Elementor:
+Open imported pages in Elementor to refine layouts.
+Rebuild complex sections if the HTML doesn’t render perfectly.
 Test with a Local WordPress:
 Set up a local WordPress site to test imports before deploying to production.
 Use REST API Data:
