@@ -1,5 +1,6 @@
 /venv
 /wp_cloner
+/wp_clone
 /wp_cloner_auth
 /wp_cloner_json_format
 /wp_cloner_output
